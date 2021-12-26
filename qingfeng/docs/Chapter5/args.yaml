@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    name: myapp
+spec:
+  containers:
+    - name: myapp
+      image: debian
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      command: ["printenv"]
+      args: ["HOSTNAME","KUBERNATES_PORT"]
+  restartPolicy: OnFailure
